@@ -1,38 +1,32 @@
 ---
 title             : "Revisiting Asch: Examining Conformity to Algorithms and Algorithm Aversion"
 shorttitle        : "Algorithmic Conformity"
-
 author: 
   - name          : "Benjamin Lira"
     affiliation   : "1"
     corresponding : yes    # Define only one corresponding author
     address       : "425 S University Ave, Philadelphia, PA 19104"
     email         : "blira@upenn.edu"
-  
 affiliation:
   - id            : "1"
     institution   : "University of Pennsylvania"
-  
 authornote: |
   Social Psychology - PSYC0600-3.
   
   \addORCIDlink{Benjamin Lira}{0000-0001-5328-0657}
 abstract: |
- Algorithm aversion refers to the phenomenon where people prefer human decisions as opposed to algorithmic decisions or recommendations. For example, people might distrust an algorithm’s prediction of a house price, and prefer to trust a real-estate agent’s judgment. The literature on conformity suggests that people tend to agree when multiple others provide an answer, even when it disagrees with what they would have considered correct absent social influence. In this investigation, we test the possibility of conformity to a large number of agreeing algorithms as a potential remedy to algorithm aversion. Subjects are presented with descriptions and pictures of houses and are asked to put a price to each house. In one condition, they provide the price of the home, in others they do so after seeing recommendations from one algorithm (e.g., Zillow’s home price algorithm), or more than one agreeing algorithms (e.g., Zillow, Google, and Facebook’s algorithms). Unbeknownst to the subject, the “algorithmic predictions” are actually manipulated to be either too high or too low compared to the real house value. We vary the source of the recommendations (human experts or algorithms), the number of sources (0, 1, 3, 5), their level of agreement (low vs. high), and their distance from the real house price (10% over/under, 70% over/under the real price). Results would provide insight on how people interact with algorithms, and about the nature of influence, given that presumably, algorithms provide informational and not normative influence, that is, people should not feel pressure to get along with the algorithms.
-
+ Algorithm aversion refers to the phenomenon where people prefer human decisions as opposed to algorithmic decisions or recommendations. For example, people might distrust an algorithm’s prediction of a house price, and prefer to trust a real-estate agent’s judgment. The literature on conformity suggests that when people are exposed to the opinions of others, they tend to adjust their opinions to better match the group, and more so when the group is larger. In this investigation, we test the possibility of conformity to a large number of agreeing algorithms as a potential remedy to algorithm aversion. Subjects are presented with descriptions houses and are asked to guess the house price. In each trial they can adjust their response after recommendations from one or mulitple algorithms (e.g., Zillow’s home price algorithm), or real estate agents opinions. Unbeknownst to the subject, the recommendations are actually manipulated to be either too high or too low compared to the correct house value. We vary the source of the recommendations (human experts or algorithms), the number of sources (0, 1, 3, 5), their level of agreement (low vs. high), and their distance from the real house price (10% over/under, 70% over/under the real price). Results would provide insight on how people interact with algorithms, and about the nature of influence, given that presumably, algorithms provide informational and not normative influence, that is, people should not feel pressure to get along with the algorithms.
   
-keywords          : "Conformity | Algorithm Aversion | Algorithm Appreciation"
+keywords          : "Conformity, Algorithm Aversion, Algorithm Appreciation"
 wordcount         : ""
 floatsintext      : yes
 linenumbers       : no
 draft             : no
 mask              : no
-
 figurelist        : no
 tablelist         : no
 footnotelist      : no
-
-classoption       : "man"
+classoption       : "jou "
 header-includes:
   - |
     \makeatletter
@@ -41,27 +35,17 @@ header-includes:
       {-1em}%
       {\normalfont\normalsize\bfseries\typesectitle}}
       
-    \floatstyle{plaintop}
-      
-    \hypersetup{
-    colorlinks = true,
-    linkbordercolor = {white},
-    citecolor = {blue},
-    urlcolor = {blue},
-    linkcolor = {blue}
-    }
-    
     \renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
       {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
       {-\z@\relax}%
       {\normalfont\normalsize\bfseries\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
-    \makeatother
-
 csl               : "`r system.file('rmd', 'apa7.csl', package = 'papaja')`"
 documentclass     : "apa7"
-
 output            : papaja::apa6_pdf
 bibliography: references.bib
+editor_options: 
+  markdown: 
+    wrap: 10000
 ---
 
 ```{r setup, include = FALSE}
@@ -75,57 +59,43 @@ set.seed(42)
 knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 ```
 
-**Notes.**
+In 1956 Solomon Asch published groundbreaking work showing that people will abandon their judgement to conform to a group that is clearly giving the wrong answers to a simple problem [@asch1956]. Over the following decades, research in social psychology has advanced our understanding of how humans are affected by other humans [@cialdini2004]. Nowadays however, a considerable amount of decisions are influenced by algorithms, not only by other people. As I write this paper, OpenAI's ChatGPT has taken the world by storm, by showing close to human level performance in flexible conversation. In the last decade, algorithms have mastered visual tasks, language understanding, and game playing. Despite outperforming humans in many of these areas [@dawes1989; @sawyer1966], however, people often distrust algorithms, preferring the more fallible opinions of experts, a phenomenon dubbed algorithm aversion [@dietvorst2015]. For example, people might distrust an algorithm's prediction of a house price, and prefer to trust a real-estate agent's judgment.
 
--   Compare the effects of algorithms to the effect of human crowds. (5 past participants priced this house at x, y, or z.).
+However, the literature on how people interact with algorithms has relied on testing how people react to a single algorithm, discounting the possibility that when multiple algorithms agree, people might be swayed to conform to them. This possibility raises two conflicting implications: Given that human judgement is often noisy and can be improved by taking algorithms into account [@kahneman2016a; @kahneman2021], offering an array of algorithms could improve human judgement by increasing the extent to which people incorporate algorithms in their decisionmaking. On the other hand, algorithms can be biased (e.g., discriminate against subgroups) or lack common sense (e.g., when the input information is uncommon, models may provide nonsensical information). In the context of human-centered artificial intelligence [@riedl2019], humans are in the role of supervising algorithms and identifying potential biases. If people are swayed by algorithms blindly, they might fail to notice algorithmic bias. Thus, algorithmic conformity, could improve human performance and welfare when algorithms are correct, but hinder it when they hold biases.
 
--   Does it make sense to have a secondary DV of confidence in your score?
-
--   What is the setup: what is the cover story?
-
--   What is the procedure. Do we need to show a couple of correct answers. Should we have a couple of first trials were the algorithms are correct?
-
-In 1956 Solomon Asch published groundbreaking work showing that people will abandon their judgement to conform to a group that is clearly giving the wrong answers to a simple problem [@asch1956]. Over the following decades, research in social psychology has advanced our understanding of how humans are affected by other humans [@cialdini2004]. As I write this paper, OpenAI's ChatGPT has taken the world by storm, by showing close to human level performance in flexible conversation. In the last decade, algorithms have mastered visual tasks, language understanding, and game playing. Despite outperforming humans in many of these areas [@dawes1989; @sawyer1966], however, people often distrust algorithms, preferring the more fallible opinions of experts, a phenomenon dubbed algorithm aversion [@dietvorst2015]. For example, people might distrust an algorithm's prediction of a house price, and prefer to trust a real-estate agent's judgment.
-
-However, the literature on how people interact with algorithms has relied on testing how people react to a single algorithm, discounting the possibility that when multiple algorithms agree, people might be swayed to conform to them. This possibility raises two conflicting implications: Given that human judgement is often noisy and can be improved by taking algorithms into account [@kahneman2016a; @kahneman2021], offering an array of algorithms could improve human judgement by helping people agree with algorithms. On the other hand, algorithms can be biased (e.g., discriminate against subgroups) or lack common sense (e.g., when the input information is uncommon, models may provide nonsensical information). In the context of human-centered artificial intelligence [@riedl2019], humans are in the role of supervising algorithms and identifying potential biases. If people are swayed by algorithms blindly, they might fail to notice algorithmic bias. Thus, algorithmic conformity, could improve human performance and welfare when algorithms are correct, but hinder it when they hold biases.
-
-We conduct an experiment testing people's propensity to conform to algorithmic recommendations, even when these recommendations are wrong, but come with a group of algorithms that agree with each other. We compare the effect of conformity to expert humans against the effects of conformity to algorithms. We test the effect of the number of sources, the degree of agreement between them, and the degree to which the recommendations are wrong.
+We conduct an experiment testing people's propensity to conform to algorithmic recommendations, even when these recommendations are flawed, but were generated by a set of algorithms that seem to agree with each other. We compare the effect of conformity to expert humans against the effects of conformity to algorithms. We test the effect of the number of sources, the degree of agreement between them, and the degree to which the recommendations are wrong.
 
 ## Conformity
 
-Conformity refers to the adjustment of one's opinions such that they become consistent with the opinions of others or with perceived social norms [@apadict]. In a classical experiment, 
+Conformity refers to the adjustment of one's opinions such that they become consistent with the opinions of others or with perceived social norms [@apadict]. In a classical series of experiments, Asch showed that people would provide incorrect responses to a simple perceptual task [@asch1956; @asch1995].
 
-Conformity has declined over time, but what about algorithms?
+The two main drivers of conformity are informational and normative influence [@deutsch1955]. People might conform to other sources of judgment because they might think that other people likely have information that can improve their accuracy (informational influence). Another reason why they might choose to do so is because they want to feel a like they belong, and want to get along with the group (normative influence) [@bernheim1994].
 
-The two main drivers of conformity are informational and normative influence [@bernheim1994]. Informational influence refers to the desire to be correct, and normative influence refers to the desire to be liked and accepted by others [@bernheim1994]. Conformity is at least partly about status, and, presumably, agreeing or disagreeing with algorithms has no such effect (i.e., only informational influence) [@bernheim1994]
+A second important distinction in the study of conformity is the degree to which it is conscious or unconscious. Evidence from neuroscience suggests that conflicting with the group results in activation of the rostral cingulate zone and the ventral striatum, areas of the brain associated with the processing of prediction error [@klucharev2009]. These are general purpose areas linked to reinforcement learning, and thus, even when participants consciously devalue the opinions of a reference group, they may still face unconscious pressure to conform.
+
+The Asch experiments relied on a powerful social situation where participants are in the physical presence of others who agree with each other. Despite this, conformity can exist even when people do not see the relevant others, and their influence is mediated through a virtual platform. In one study, researchers created a platform where people could download music. In one condition, there was no information about the frequencies with which each song was downloaded. In other conditions, participants saw the number of downloads each song had. Crucially, upon entering the site, participants were randomized to one of *multiple worlds* sealed to each other, where the tallies of downloads were kept independent of each other. This resulted in one participant viewing song A as popular, where as for another, song B was popular and song A was not. In this experiment, participants conformed to what was popular in their specific world, something that ended up varying considerably across conditions [@salganik2006].
+
+Meta-analyses have shown that conformity effects have declined over time [@bond1996], however, as algorithms become more and more precise, it stands to reason that conformity to algorithms might be an exception to that trend, with people being more rather than less likely to conform to them.
 
 ## Algorithms and human judgement
 
-People and organizations are increasingly interacting with algorithms in their professional (e.g., doctors using diagnostic algorithms) and personal lives (e.g., people deciding on whether to follow traffic directions from google maps; @liel2020).
+People and organizations are increasingly interacting with algorithms in their professional (e.g., doctors using algorithms to diagnose disease) and personal lives (e.g., people deciding on whether to follow traffic directions from Google Maps; @liel2020).
 
-Algorithms are generally better than humans, and human judgement amplified by algorithms is still worse than algorithms alone [@kahneman2021]. Algorithms are better: Grove found that 10% better on average [@grove2000], and even better at recommending jokes [@yeomans2019].
+Do algorithms outperform human experts? Research in judgment and decision-making suggests that actuarial judgment (relying on rules, formulas, or algorithms) is practically alwasy superior to clinical judgment (i.e., a human expert reviewing and integrating the evidence subjectively and qualitatively) [@dawes1989]. Moreover, even improperly designed algorithms (i.e., pick a number of things that should be positively associated with the outcome and just add them up) tend to outperform human experts [@dawes1979]. When people receive the predictions made by an algorithm in addition to the raw data, they are still outperformed by the results of the models alone [@kahneman2021], mostly because they fail to adjust enough for the base rate, and emphasize their own subjective decisionmaking process over the algorithmic recommendation. A meta analysis from 20 years ago, before the rise of machine learning, found that 10% better on average [@grove2000], a figure that is now likely underestimated given recent advances in the performance of machine learning systems. Recent studies have found that algorithms outperform humans even at tasks where people would think that human intelligence is needed, such as recommending jokes to friends and family [@yeomans2019].
 
-Algorithms are likely to complement rather than replace human judgemnt [@brynjolfsson2017; @shrestha2019]. Thus, it is import to understand how people interact with algorithms. Dietvorst... Logg has found that people prefer algorithms, especially when compared to other people's judgment, rather than teir own; and when they don't think of themselves as experts [@logg2019]. Younger people are more likely to trust algorithms than older people [@kaufmann2021].
+Despite their performance, many algorithmic approaches are unfit for use without human supervision, and thus are likely to complement rather than replace human judgment [@brynjolfsson2017; @shrestha2019]. Several attempts at automating human judgment have resulted in public relations failures because of hidden biases whereby algorithms unfairly treat groups and fail to incorporate common sense. In one example, Amazon cancelled an AI approach to hiring because it was gender-biased [@amazons2018], and in another, an AI approach to admissions was cancelled because of concerns that it was perpetuating biases [@waters2013].
 
-@liel2020 tested people's acceptance of algorithmic suggestions in a simple perceptual task. One limitation of this past research is:
+Thus, understanding how humans and algorithms interact becomes increasingly important. For the most part, people tend to distrust algorithms. When they see them make mistakes they loose confidence in them more steeply than they do for humans, a phenomenon dubbed algorithm aversion [@dietvorst2015], that potentially explains why people prefer clinical over actuarial judgment despite the evidence. Recent research has found that under certain conditions, people actually prefer algorithms, such as when compared to other people's judgment, rather than their own; and when they don't think of themselves as experts [@logg2019]. Younger people are more likely to trust algorithms than older people [@kaufmann2021].
 
--   Uses a task with ambiguous images where subjects must count merged zebras
-
--   Used recommendations of a single algorithm, thus not testing how different algorithms affect judgemnet.
-
--   They measure conformity as providing a wrong answer, but conformity might relate to a quantitative adjusment of opinion that might be milder.
-
--   Their algorithm gave only incorrect responses
+Despite the fact that algorithms are fallible, little research has tested what happens when people receive inaccurate algorithmic recommendations. @liel2020 tested people's acceptance of algorithmic suggestions in a simple perceptual task, echoing Asch's studies. However, they used a task with ambiguous synthetic images, where subjects had to count the number of zebras in the image. However, the zebras merged into one another, such that there was a correct number *visible* zebra heads, but no correct number of zebras. Thus, absent a real correct answer, it might make sense for participants to simply agree with an algorithmic suggestion. Furthermore, it tested how people reacted to a single flawed algorithm, and thus did not elaborate on the possibility that people might be more likely to accept false recommendations when they come from a multitude of algorithms. Finally, they measured conformity as the proportion of times when participants gave an incorrect answer, continuous outcome
 
 ## The present research
 
-Research on humans interacting with algorithms has focused on two main issues: (1) are there any areas where human judgement is better than algorithms (i.e., clinical vs. actuarial judgment), and (2) are people willing to trust algorithms (i.e., algorithm aversion and appreciation). The issues of how people react to algorithmic mistakes and how people react to multiple algorithms have been largely ignored.
+Research on humans interacting with algorithms has focused on two main issues: (1) are there any areas where human judgement is better than algorithms (i.e., clinical vs. actuarial judgment), and (2) are people willing to trust algorithms (i.e., algorithm aversion and appreciation). The issues of how people react to algorithmic mistakes and how people react to multiple algorithms have been largely understudied.
 
-In this investigation, we conduct an experiment to test how the quantity of algorithms, their level of agreement, and the degree to which the algorithms are wrong affect algorithm appreciation and algorithm aversion. Consistent with literature on human conformity, we predict that more algorithms, that are more in agreement with each other, and are less wrong will result in higher levels of conformity. However, given that presumably people consider algorithms to be more homogeneous than human, we predict that the the effect of the number of algorithms will be weaker than the corresponding effect of the number of humans.
+In this investigation, we conduct an experiment to test how the quantity of sources (algorithms or human experts), their level of agreement, and the degree to which the algorithms are wrong affect algorithm appreciation and algorithm aversion. Consistent with literature on human conformity, we predict that more algorithms, that are more in agreement with each other, and are less wrong will result in higher levels of conformity. However, given that presumably people consider algorithms to be more homogeneous than human, we predict that the the effect of the number of algorithms will be weaker than the corresponding effect of the number of humans. See **Figure** \@ref(fig:hyp)**.**
 
-Figure\ \@ref(fig:hyp)
-
-```{r, hyp, fig.cap = "We hypothesize that more recommendations will lead to a larger change in valuation, but the effect of more recommendations will be larger for human recommendations as opposed to algorithmic ones", out.width = "\\textwidth"}
+```{r, hyp, fig.cap = "We hypothesize that more recommendations will lead to a larger change in valuation, but the effect of more recommendations will be larger for human recommendations as opposed to algorithmic ones", out.width = ".5\\textwidth"}
 library(googlesheets4)
 library(tidyverse)
 read_sheet("https://docs.google.com/spreadsheets/d/1k3Pte2L1SJC_-WmKLF2hxSvsN8Bb_gLO2gRNDbWyzLw/edit#gid=0") |> 
@@ -133,7 +103,7 @@ read_sheet("https://docs.google.com/spreadsheets/d/1k3Pte2L1SJC_-WmKLF2hxSvsN8Bb
   mutate(se = 120) |> 
   ggplot(aes(Number, value, color = name))+
   geom_line()+
-  scale_x_continuous(breaks = c(0, 1, 5, 10))+
+  scale_x_continuous(breaks = c(0, 1, 5, 3))+
   geom_errorbar(aes(ymin = value - se , ymax = value+ se), width = .3)+
   scale_color_brewer(palette = "Set1")+
   geom_point()+
@@ -144,9 +114,21 @@ read_sheet("https://docs.google.com/spreadsheets/d/1k3Pte2L1SJC_-WmKLF2hxSvsN8Bb
 
 # Methods
 
+## Procedure
+
+```{r, procedure, fig.cap="Procedure of the study. Top row shows the stimulus generating procedure, and bottom two rows show the practice and critical trials respectively.", out.width = "\\textwidth"}
+knitr::include_graphics("procedure.pdf")
+```
+
+Participants will being by reading an introduction to the task. They are going to see descriptions of houses, and will judge their price. All houses are located in the same city, and vary along dimensions of size, number of bedrooms and bathrooms, neighborhood characteristics, whether or not it is a waterfront home, among other house characteristics. House descriptions are generated by sampling from a distribution of characteristics, and their price is a linear combination of the features (See **Figure** \@ref(fig:procedure) for a graphical representation of the stimuli generation procedure and the participant experience). In order to establish a common baseline for evaluating house prices, there will be a set of practice trials, where participants guess the house price, and receive feedback on the real price and how much they overestimated or underestimated the house price. Once participants achieve 4 trials where their accuracy is within 10% of the real house price, they will begin the critical trials. This practice stage is designed to reduce noise in the ratings due to participants having different base rates for house prices, additionally, it will reduce the possibility that participants simply default to the recommendations because they feel like they don't know about house prices. <!--# Fix this later -->
+
+Before beginning the critical trials, participants will see a screen informing them that they will no longer receive feedback, but might get some advice, either from expert real estate agents from that city, or from house price prediction algorithms. Also, they will learn that performance in this stage will be rewarded, such that 10% of the most accurate respondents will receive a bonus. Participants will see the house characteristics and guess its price. Then, they will see recommendations, and after that, decide whether or not they want to adjust their initial estimate.
+
+After 48 randomized trials, participants will self-report their algorithm aversion in the financial domain, items on the perceived variance of algorithms, and a demographic questionnaire. Finally, participants will be debriefed about the house prices and recommendations being fake, and about their performance.
+
 ## Participants
 
-We will recruit 4,000 participants from Prolific, and each participant will complete 40 trials, for a total sample size of 40,000 trials.
+We will recruit 500 participants from Prolific, and each participant will complete 40 trials, for a total sample size of 20,000 trials. This will allow us to be powered for interaction effects, which require larger samples than what is usually considered [@simonsohn2014].
 
 ## Materials
 
@@ -154,11 +136,13 @@ We will recruit 4,000 participants from Prolific, and each participant will comp
 
 #### Algorithm appreciation and aversion.
 
-We will 4 items out of the algorithm aversion scale [@melick2020] use a scale to ascertain baseline levels of trust and mistrust in algorithms, specifically in the financial domain. We hypothesize that people who score high in algorithm aversion will be less likely to conform to algorithms, but not to other people. Items are reproduced in the appendix.
+We will 4 items out of the algorithm aversion scale [@melick2020] to ascertain baseline levels of trust and mistrust in algorithms, specifically in the financial domain. We hypothesize that people who score high in algorithm aversion will be less likely to conform to algorithms, but not to other people. Items are reproduced in the appendix.
 
 #### Perceived variance in algorithms.
 
 If people react similarly to a single algorithmic recommendation as opposed to multiple, it may be because they believe that algorithms tend to be very similar among each other. If people think that algorithmic recommendations are highly correlated (or more correlated to each other than human judgment), then this could explain a potentially flatter relationship between number of recommendations and conformity.
+
+Here are potential items for this scale: "I think that most algorithms tend to give similar recommendations", "There is more variety in the judgments of experts than in those of algorithms", "All algorithms produce the same results".
 
 ### Manipulations
 
@@ -168,46 +152,43 @@ Across trials, participants will see house price recommendations that are provid
 
 #### Number of opinions
 
-Across trials, participants will receive recommendations from either 1, 5 or 10 different sources, either all algorithms, or all real-estate agents.
+Across trials, participants will receive recommendations from either 1, 3 or 5 different sources, either all algorithms, or all real-estate agents.
 
 #### Agreement between opinions
 
-Across trial we will manipulate the level of agreement between the recommendations. In the low-agreement condition, the recommendations will be 
+Across trial we will manipulate the level of agreement between the recommendations. In the low-agreement condition, the recommendations will be drawn from a normal distribution with 10% of the house price as a standard deviation, whereas in the high-agreement condition, the standard deviation will be 3% of the house price.
 
-#### Algorithmic bias
+#### Bias in recommendations
+
+Recommendations will be either close to the actual price of the house (10% higher or lower than real house price - low bias), or far from the actual house price (70% higher or lower than the real house price - high bias).
 
 ### Dependent variable: Change in house price rating
 
-## Procedure
+For each trial, the dependent variable will be the size of the adjustment from the original guess to the guess after seeing recommendations. A change of 0 means that participants did not change their response (indicating no conformity), positive scores indicate that the participant changed their response to be closer to the recommendations, and negative scores indicate that the participants score drifted away of recommendations (i.e., a reactance effect).
 
-```{r, procedure, fig.cap="Procedure of the study. Top row shows the stimulus generating procedure, and bottom two rows show the practice and critical trials respectively.", out.width = "\\textwidth"}
-knitr::include_graphics("procedure.pdf")
-```
+## Analysis
 
-
-1.  Participants read a cover story
-
-2.  Participants get a bunch of real house prices so that they can be calibrated See a bunch of examples first to reduce noise in different anchorings.
-
-3.  Participants do a number of trials, where they first rate a house price without any algoriths, then see recommendations from either humans or algorithms, and decide whether to change their rating. We will pay people an accuracy bonus to limit concerns of low motivation to be accurate.
-
-## Data analysis
-
-We used for all our analyses.
-
-Check for the effect of recognizability
-
-Check for ordering effects
-
-Check for
+Aside from the regular multilevel model to analyze the effect of each of the manipulations on the outcome, it would be interesting to analyze changes in conformity as the trials go on. I would hypothesize that conformity might increase as trials go by for people low in algorithm aversion, but might decrease as the trials go by for people high in algorithm aversion. People high in algorithm aversion might be more critical and attentive to the wrongness of the algorithmic predictions [@dietvorst2015] and might learn to ignore its recommendations. People low in algorithm aversion might get more and more comfortable with taking recommendations from the algorithm as the trials progress.
 
 # Discussion (Potential points)
 
-Informational vs. normative influence
+How did conformity to human experts differ from conformity to algorithms?
 
-Limitation: we should do this with real estate people, because people might not consider themselves as experts and therefore might be less prone to algorithm aversion [@logg2019].
+-   Human recommendations and algorithmic ones might differ in their levels of informational vs. normative influence. Participants with higher levels of algorithm aversion could view algorithms as less informational.
 
-Future research could test the effect of showing human and algorithmic advice concurrently.
+-   It stands to reason that algorithms exert no normative influence, that is, participants are not worried about fitting in, or being liked by them. Advice from other humans might exert normative influence, but probably to a much lesser extent than in in-person lab studies of conformity.
+
+Some ideas for limitations of the study:
+
+-   Participants in the study were non-experts. To limit the possibility that people might have different levels of experience with the housing market, we used an artificially created stimulus set, and participants practiced until they reached similar expert performance. However, non-experts are less prone to algorithm aversion [@logg2019], so rates of conformity produced by this study might be inflated compared to those that we would observe in the real world. Therefore, it would be ideal to replicate this study with expert decision makers (e.g., real estate agents, or admissions officers in a similar study for admissions decisions.)
+
+-   In the real world, people might increasingly interact with both human and algorithmic advice concurrently. Take for example a situation where you are driving, and your friend suggests you take a different route to the one google maps recommends. This study did not shed light on how people react to algorithms and humans simultaneously. Thus, future research could test the effect of showing human and algorithmic advice concurrently.
+
+-   In this study, we manipulated the number of sources, their level of wrongness (i.e., bias), and their agreement (i.e., noise) in a discrete manner. It could be that certain aspects of the functions that map the explanatory variables to the outcomes remain hidden in the *in-between* levels of the explanatory variables. With our methodology, it would be possible to sample the space of explanatory variables continuously, by randomly sampling a number of sources, and the level of noise and bias for each trial.
+
+-   This study lacked the powerful social situation of having other people present, and thus, the contribution of normative influence was minimized (But not necessarily eliminated, see @salganik2006). Future research could have other people present, either in person or virtually (an interesting distinction yet to be explored, given that so much of communication is no longer face to face). In such a study, recommendations would be received from real estate agents, and a representative of the algorithm (e.g., someone who participated in its creation).
+
+-   Another potential outcome of interest that we have not included in this study is the feeling of confidence in one's predictions. Perhaps algorithmic and human recommendations change the pricing of houses in similar ways, but the confidence associated with this judgments might be different.
 
 \newpage
 
@@ -224,45 +205,10 @@ Future research could test the effect of showing human and algorithmic advice co
 
 Below are the items for the algorithm aversion scale in the financial domain [@melick2020].
 
--   Financial advice
-    that is index-based
-    is more effective
-    than financial
-    advice that is based
-    on the judgment of
-    the advisor. (R)
+-   Financial advice that is index-based is more effective than financial advice that is based on the judgment of the advisor. (R)
 
--   It is more
-    appropriate for
-    financial advisors
-    to make
-    recommendations
-    that are indexbased than to make
-    recommendations
-    that are based on
-    their own
-    judgment. (R)
+-   It is more appropriate for financial advisors to make recommendations that are index based than to make recommendations that are based on their own judgment. (R)
 
--   It is more
-    appropriate for
-    financial lending
-    institutions to make
-    loan decisions
-    based on a
-    mathematical
-    formula designed
-    to predict
-    probability of loan
-    default than based
-    on the judgment of
-    the loan officer. (R)
+-   It is more appropriate for financial lending institutions to make loan decisions based on a mathematical formula designed to predict probability of loan default than based on the judgment of the loan officer. (R)
 
--   Financial lending
-    decisions that are
-    based on the
-    judgment of the
-    loan officer are
-    more effective than
-    lending decisions
-    that are based on
-    the mathematical probability of loan default.
+-   Financial lending decisions that are based on the judgment of the loan officer are more effective than lending decisions that are based on the mathematical probability of loan default.
