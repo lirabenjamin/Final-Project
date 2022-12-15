@@ -1,0 +1,70 @@
+---
+title: "Social Psychology Final Project"
+author:
+  - name: Benjamin Lira
+    url: https://lirabenjamin.github.io
+    affiliation: University of Pennsylvannia
+    affiliation-url: https://example.com/spacelysprokets
+format:
+  pdf
+editor: visual
+bibliography: references.bib
+csl: apa.csl
+title-block-banner: true
+abstract:
+  Moral Foundations Theory (MFT) makes the claim that differences in moral foundations explain political affiliation, such that people with higher moral taste for purity, loyalty, and authority are more likely to be conservative. This idea has not been causally tested. In this investigation we leverage social media data to test the hypothesis that users who have become more politically polarized through time shift their moral foundations, or whether changes in moral foundations explains changes in political orientation. To test this, we leverage text analysis methods to measure user's political orientation through time, and their use of moral foundations language.
+  
+  Second Abstract adfnsdf
+abstract-title: Abstract
+fig-cap-location: top
+keywords: emotion | motivation
+---
+
+# Abstract 
+
+# Introduction
+
+Here are some cites [@abrahams2019]
+
+# Method
+
+This is some testing.^[This is a foot note]
+
+Here's a table
+
+::: {layout-ncol=2}
+### List One
+
+- Item A
+- Item B
+- Item C
+
+### List Two
+
+- Item X
+- Item Y
+- Item Z
+:::
+
+# Results
+
+Here's a figure
+
+![Elephant](elephant.pdf){#fig-elephant}
+
+And I can reference it by See @fig-elephant for an illustration.
+
+And a multi figure
+
+::: {#fig-elephants layout-ncol=2}
+
+![Sub Caption 1](elephant.pdf){#fig-ref1}
+
+![Sub Caption 1](elephant.pdf){#fig-ref2}
+
+Main Caption goes here.
+:::
+
+# Discussion
+
+# References
